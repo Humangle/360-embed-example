@@ -436,7 +436,7 @@ fetch('./Outside The Camp 1.hvrj').then(response => response.json()).then(hvrj =
 	let version = links.full;
 	navigator.xr.isSessionSupported('immersive-ar').then((supported) => {
 		if (!supported){
-			version = links.lite;
+			version = links.full;
 		} else {
 			version = links.full;
 		}
