@@ -74,7 +74,7 @@ let main = async (view) => {
 	const loader = new THREE.ImageBitmapLoader(loadManager);
 	loader.setOptions( { imageOrientation: 'flipY' } );
 	
-	const sT = await loader.loadAsync("./no-image.jpg");
+	const sT = await loader.loadAsync("https://raw.githubusercontent.com/Humangle/360-embed-example/refs/heads/main/Demolished_Camp/no-image.jpg");
 	const sphereTexture = new THREE.CanvasTexture(sT);
 	sphereTexture.colorSpace = THREE.SRGBColorSpace;
 	sphereTexture.flipY = false;
