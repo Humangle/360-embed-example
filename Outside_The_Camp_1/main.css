@@ -1,0 +1,69 @@
+body {
+	margin: 0px;
+	background: #000000;
+}
+#c_Outside_The_Camp_1 {
+	display: block;
+	height: 100vh;
+	width: 100vw;
+	margin: 0px;
+	padding: 0px;
+	background: none;
+}
+#loading_Outside_The_Camp_1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#loading_Outside_The_Camp_1 .progress {
+    margin: 1.5em;
+    border: 1px solid white;
+	border: none;
+	padding-left: 42%;
+    width: 50vw;
+}
+#loading_Outside_The_Camp_1 .progressbar {
+    margin: 2px;
+    background: white;
+    height: 1em;
+    transform-origin: top left;
+    transform: scaleX(0);
+}
+#launchVR_Outside_The_Camp_1 {
+	margin: 0px;
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	z-index: 999999999;
+	background: #00000044;
+	color: #FFFFFFBB;
+	padding: 1vh;
+	border-top-right-radius: 5px;
+	cursor: pointer;
+	display: none;
+}
+#launchVR_Outside_The_Camp_1:hover {
+	background: #00000088;
+	color: #FFFFFFFF;
+}
+#launchFS_Outside_The_Camp_1 {
+	margin: 0px;
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
+	z-index: 999999999;
+	background: #00000044;
+	color: #FFFFFFBB;
+	padding: 1vh;
+	border-top-left-radius: 5px;
+	cursor: pointer;
+}
+#launchFS_Outside_The_Camp_1:hover {
+	background: #00000088;
+	color: #FFFFFFFF;
+}
