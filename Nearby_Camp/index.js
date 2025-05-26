@@ -24,12 +24,13 @@ let main = async (view) => {
 	
 	//orbital camera controls
 	const controls = new OrbitControls(camera, renderer.domElement);
+	controls.target.set(0, 1.6, 0);
 	controls.rotateSpeed *= -0.4;
 	controls.autoRotate = false;
 	controls.enableDamping = false;
 	controls.enableZoom = false;
-	controls.maxPolarAngle = 2;
-	controls.minPolarAngle = 0.86;
+	controls.maxPolarAngle = Math.PI-1;
+	controls.minPolarAngle = 1;
 	controls.update();
 	
 	//here we go!
