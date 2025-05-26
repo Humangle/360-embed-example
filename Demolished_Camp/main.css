@@ -46,6 +46,8 @@ body {
 	border-top-right-radius: 5px;
 	cursor: pointer;
 	display: none;
+	min-width: 1em;
+	min-height: 1em;
 }
 #launchVR_Demolished_Camp:hover {
 	background: #00000088;
@@ -62,6 +64,8 @@ body {
 	padding: 1vh;
 	border-top-left-radius: 5px;
 	cursor: pointer;
+	min-width: 1em;
+	min-height: 1em;
 }
 #launchFS_Demolished_Camp:hover {
 	background: #00000088;
