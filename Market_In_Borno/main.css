@@ -2,7 +2,7 @@ body {
 	margin: 0px;
 	background: #000000;
 }
-#c_Demolished_Camp {
+#c_Market_In_Borno {
 	display: block;
 	height: 100vh;
 	width: 100vw;
@@ -10,7 +10,7 @@ body {
 	padding: 0px;
 	background: none;
 }
-#loading_Demolished_Camp {
+#loading_Market_In_Borno {
     position: fixed;
     top: 0;
     left: 0;
@@ -20,21 +20,21 @@ body {
     justify-content: center;
     align-items: center;
 }
-#loading_Demolished_Camp .progress {
+#loading_Market_In_Borno .progress {
     margin: 1.5em;
     border: 1px solid white;
 	border: none;
 	padding-left: 42%;
     width: 50vw;
 }
-#loading_Demolished_Camp .progressbar {
+#loading_Market_In_Borno .progressbar {
     margin: 2px;
     background: white;
     height: 1em;
     transform-origin: top left;
     transform: scaleX(0);
 }
-#launchVR_Demolished_Camp {
+#launchVR_Market_In_Borno {
 	margin: 0px;
 	position: fixed;
 	bottom: 0px;
@@ -47,11 +47,11 @@ body {
 	cursor: pointer;
 	display: none;
 }
-#launchVR_Demolished_Camp:hover {
+#launchVR_Market_In_Borno:hover {
 	background: #00000088;
 	color: #FFFFFFFF;
 }
-#launchFS_Demolished_Camp {
+#launchFS_Market_In_Borno {
 	margin: 0px;
 	position: fixed;
 	bottom: 0px;
@@ -63,7 +63,7 @@ body {
 	border-top-left-radius: 5px;
 	cursor: pointer;
 }
-#launchFS_Demolished_Camp:hover {
+#launchFS_Market_In_Borno:hover {
 	background: #00000088;
 	color: #FFFFFFFF;
 }

@@ -1,0 +1,55 @@
+<!--Yes, this file is safe to Delete-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="keywords" content="Embed, How To, HumAngle, VR, Tour, 360, HumAngle VR Tour Editor" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+
+		<meta property="og:title" content="HumAngle VR Tour" />
+		<meta property="og:type" content="website" />
+		<meta
+			property="og:description"
+			content="How To Embed a VR Tour or 360 image"
+		/>
+		<meta
+			property="og:image"
+			content="https://raw.githubusercontent.com/Humangle/VRTourEditor/refs/heads/main/assets/title-image.png"
+		/>
+		<meta property="og:url" content="https://humangle.github.io/VRTourEditor/sample" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<title>Embed Example</title>
+		<link rel="icon" href="https://humanglemedia.com/wp-content/uploads/2020/03/cropped-android-chrome-512x512-1-32x32.png" sizes="32x32">
+		<link rel="icon" href="https://humanglemedia.com/wp-content/uploads/2020/03/cropped-android-chrome-512x512-1-192x192.png" sizes="32x32">
+	</head>
+	<body>
+		<div style="padding: 50px; margin: auto; width: 105px;">
+			<img src="https://humanglemedia.com/wp-content/uploads/2020/02/humangle-logo-full-colour-rgb.png" height="41px" width="105px"/>
+		</div>
+		<div style="width: 100%; text-align: center;">
+			Copy and include the code snippet below in your webpage. Make sure to replace the link in "src" to the link you're hosting your tour. 
+			<br><br>
+			<code style="border: 2px;">
+				&lt;iframe src="https://humangle.github.io/360-embed-example/Market_In_Borno" style="width:500px; height:300px; border:none;" allowfullscreen"&gt;&lt;/iframe&gt;
+			</code>
+			<button id="copy" title="Copy Embed Snippet" style="cursor: pointer;">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+				  <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+				</svg>
+			</button>
+		</div>
+		<div style="padding: 50px; margin: auto; width: 500px;">
+			<!--<embed src="https://humangle.github.io/360-embed-example/Market_In_Borno" style="width:500px; height: 300px;" allow="fullscreen"> </embed>-->
+			<iframe src="https://humangle.github.io/360-embed-example/Market_In_Borno" style="width:500px; height:300px; border:none;" allowfullscreen> </iframe>
+		</div>
+		<script defer>
+			document.getElementById("copy").addEventListener('click', () => {
+				navigator.clipboard.writeText('<iframe src="https://humangle.github.io/360-embed-example/Market_In_Borno" style="width:500px; height:300px; border:none;" allowfullscreen></iframe>');
+				alert("Embed code copied!");
+			});
+		</script>
+	</body>
+</html>
