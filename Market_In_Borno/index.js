@@ -25,7 +25,7 @@ let main = async (view) => {
 	
 	//orbital camera controls
 	const controls = new OrbitControls(camera, renderer.domElement);
-	controls.target.set(0, 1.4, 0);
+	controls.target.set(0, 1.6, 0);
 	controls.rotateSpeed *= -0.4;
 	controls.autoRotate = false;
 	controls.enableDamping = false;
