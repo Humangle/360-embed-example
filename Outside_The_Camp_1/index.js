@@ -111,6 +111,10 @@ let main = async (view) => {
 	sphereMesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
 	sphereMesh.name = "sphere";
 	sphereMesh.position.set(0,1.6,0);
+	if (links.header?.pan > 0){
+		sphereMesh.rotation.y = (links.header.pan/180)*Math.PI;
+		pickableObjs.rotation.y = (links.header.pan/180)*Math.PI;
+	}
 	scene.add(sphereMesh);
 	ready = true;
 	
