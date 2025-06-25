@@ -292,7 +292,7 @@ let main = async (view) => {
 	}
 	
 	const onWindowResize = () => {
-		camera.aspect = canvas.clientWidth/canvas.clientHeight;
+		camera.aspect = window.innerWidth/window.innerHeight;
 		camera.updateProjectionMatrix();
 		
 		renderer.setSize(canvas.clientWidth, canvas.clientHeight);
@@ -372,10 +372,10 @@ document.getElementById('c_Demolished_Camp').addEventListener('fullscreenchange'
 		// You can restore to original dimensions or make it responsive
 		canvas.style.width = '100vw';
 		canvas.style.height = '100vh';
-		renderer.setPixelRatio(window.devicePixelRatio);
-		renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-		camera.aspect = canvas.clientWidth / canvas.clientHeight;
+		canvas.style.display = 'block';
+		camera.aspect = window.innerWidth / window.innerHeight;
 		camera.updateProjectionMatrix();
+		renderer.setSize(canvas.clientWidth, canvas.clientHeight);
     }
   }
 });
