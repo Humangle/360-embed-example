@@ -370,9 +370,9 @@ document.getElementById('c_Demolished_Camp').addEventListener('fullscreenchange'
     const canvas = document.getElementById('c_Demolished_Camp');
     if (canvas) {
 		// You can restore to original dimensions or make it responsive
-		canvas.style.width = '100vw';
-		canvas.style.height = '100vh';
-		canvas.style.display = 'block';
+		//canvas.style.width = '100vw';
+		//canvas.style.height = '100vh';
+		//canvas.style.display = 'block';
 		camera.aspect = window.innerWidth / window.innerHeight;
 		camera.updateProjectionMatrix();
 		renderer.setSize(canvas.clientWidth, canvas.clientHeight);

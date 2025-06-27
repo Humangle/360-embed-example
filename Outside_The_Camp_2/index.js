@@ -372,9 +372,7 @@ document.getElementById('c_Outside_The_Camp_2').addEventListener('fullscreenchan
 		// You can restore to original dimensions or make it responsive
 		canvas.style.width = '100vw';
 		canvas.style.height = '100vh';
-		canvas.style.display = block;
-		renderer.setPixelRatio(window.devicePixelRatio);
-		
+		canvas.style.display = 'block';
 		camera.aspect = window.innerWidth / window.innerHeight;
 		camera.updateProjectionMatrix();
 		renderer.setSize(canvas.clientWidth, canvas.clientHeight);
