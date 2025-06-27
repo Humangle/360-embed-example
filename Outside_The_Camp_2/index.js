@@ -370,8 +370,9 @@ document.getElementById('c_Outside_The_Camp_2').addEventListener('fullscreenchan
     const canvas = document.getElementById('c_Outside_The_Camp_2');
     if (canvas) {
 		// You can restore to original dimensions or make it responsive
-		/*canvas.style.width = '100vw';
-		canvas.style.height = '100vh';**/
+		canvas.style.width = '100vw';
+		canvas.style.height = '100vh';
+		canvas.style.display = block;
 		renderer.setPixelRatio(window.devicePixelRatio);
 		
 		camera.aspect = window.innerWidth / window.innerHeight;
