@@ -16,7 +16,7 @@ let main = async (view) => {
 	console.log("WebGL2Renderer: " + renderer.capabilities.isWebGL2);
 	
 	//set the camera up
-	const fov = 45;
+	const fov = 60;
 	const aspect = window.innerWidth / window.innerHeight;
 	const near = 0.1;
 	const far = 128;
@@ -158,6 +158,51 @@ let main = async (view) => {
 		}
 	}
 	
+	//touchscreen raycaster
+	class ThumbPickHelper extends THREE.EventDispatcher {
+		constructor(scene) {
+			super();
+			this.raycaster = new THREE.Raycaster();
+			this.selectedObject = new THREE.Object3D();
+			this.pointer = new THREE.Vector2();
+			
+			const onTouchStart = (event) => {
+				
+				//document.getElementById("c_Demolished_Camp").style.cursor = "grab";
+			}
+			
+			const onTouchEnd = (event) => {
+				
+				//objects intersecting the Touchscreen Raycaster
+				const intersections = this.raycaster.intersectObjects(pickableObjs.children);
+				
+				for ( let i = 0; i < intersections.length; i++ ) {
+					console.log("touch intersection with: " + intersections[i].object.name);
+					if (intersections[i].object.name != "sphere"){
+						document.getElementById("c_Demolished_Camp").style.cursor = "pointer";
+						this.selectedObject = intersections[i].object;
+						intersections[i].object.material.opacity = 1;
+						teleport(intersections[i].object.name);
+					}
+				}
+				if ((intersections.length == 0) && (document.getElementById("c_Demolished_Camp").style.cursor == "pointer")){
+					document.getElementById("c_Demolished_Camp").style.cursor = "grab";
+				}
+			}
+			
+			window.addEventListener('touchend', onTouchEnd);
+			//window.addEventListener('touchstart', onTouchStart);
+		}
+		reset(){
+			this.selectedObject = new THREE.Object3D;
+		}
+		update(pickablesParent, time){
+			this.reset();
+   
+			this.raycaster.setFromCamera(this.pointer, camera);
+		}
+	}
+	
 	//desktop raycaster
 	class MousePickHelper extends THREE.EventDispatcher {
 		constructor(scene) {
@@ -266,6 +311,15 @@ let main = async (view) => {
 		}
 	}
 	
+	//On Screen Tap
+	const ScreenPicker = new ThumbPickHelper(scene);
+	ScreenPicker.addEventListener('touchend'), (event) => {
+		//switch to the view of the button selected
+		if (event.object.name && event.object.visible){
+			teleport(event.object.name);
+		}
+	}
+	
 	//On Desktop click
 	const DesktopPicker = new MousePickHelper(scene);
 	DesktopPicker.addEventListener('pointerdown', (event) => {
@@ -291,8 +345,15 @@ let main = async (view) => {
 		DesktopPicker.pointer.y = - (event.clientY/canvas.clientHeight) * 2 + 1;
 	}
 	
+	const onTouchMove = (event) => {
+		event = event.touches?.[0] || event; 
+		const rect = renderer.domElement.getBoundingClientRect();
+		ScreenPicker.pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+		ScreenPicker.pointer.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+	}
+	
 	const onWindowResize = () => {
-		camera.aspect = window.innerWidth/window.innerHeight;
+		camera.aspect = window.innerWidth / window.innerHeight;
 		camera.updateProjectionMatrix();
 		
 		renderer.setSize(canvas.clientWidth, canvas.clientHeight);
@@ -326,13 +387,13 @@ let main = async (view) => {
 			}
 		} else {
 			if (window.innerHeight > window.innerWidth+(window.innerWidth/2)) {
-				if (camera.fov != 75){
-					camera.fov = 75;
+				if (camera.fov != 90){
+					camera.fov = 90;
 					camera.updateProjectionMatrix();
 				}
 			} else {
-				if (camera.fov != 45){
-					camera.fov = 45;
+				if (camera.fov != 60){
+					camera.fov = 60;
 					camera.updateProjectionMatrix();
 				}
 			}
@@ -344,6 +405,7 @@ let main = async (view) => {
 	
 	renderer.setAnimationLoop(render);
 	window.addEventListener('pointermove', onPointerMove);
+	window.addEventListener('touchstart', onTouchMove);
 	window.addEventListener('resize', onWindowResize);
 	teleport(links.header.index); //teleport to the root
 }
@@ -370,10 +432,11 @@ document.getElementById('c_Demolished_Camp').addEventListener('fullscreenchange'
     const canvas = document.getElementById('c_Demolished_Camp');
     if (canvas) {
 		// You can restore to original dimensions or make it responsive
-		//canvas.style.width = '100vw';
-		//canvas.style.height = '100vh';
-		//canvas.style.display = 'block';
+		canvas.style.width = '100vw';
+		canvas.style.height = '100vh';
+		canvas.style.display = 'block';
 		camera.aspect = window.innerWidth / window.innerHeight;
+		camera.fov = 60;
 		camera.updateProjectionMatrix();
 		renderer.setSize(canvas.clientWidth, canvas.clientHeight);
     }

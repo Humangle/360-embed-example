@@ -17,7 +17,7 @@ let main = async (view) => {
 	
 	//set the camera up
 	const fov = 60;
-	const aspect = canvas.clientWidth/canvas.clientHeight;
+	const aspect = window.innerWidth / window.innerHeight;
 	const near = 0.1;
 	const far = 128;
 	const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
@@ -353,7 +353,7 @@ let main = async (view) => {
 	}
 	
 	const onWindowResize = () => {
-		camera.aspect = canvas.clientWidth/canvas.clientHeight;
+		camera.aspect = window.innerWidth / window.innerHeight;
 		camera.updateProjectionMatrix();
 		
 		renderer.setSize(canvas.clientWidth, canvas.clientHeight);
@@ -437,11 +437,11 @@ document.getElementById('c_Market_In_Borno').addEventListener('fullscreenchange'
 		// You can restore to original dimensions or make it responsive
 		canvas.style.width = '100vw';
 		canvas.style.height = '100vh';
-		renderer.setPixelRatio(window.devicePixelRatio);
-		renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-		camera.aspect = canvas.clientWidth / canvas.clientHeight;
+		canvas.style.display = 'block';
+		camera.aspect = window.innerWidth / window.innerHeight;
 		camera.fov = 60;
 		camera.updateProjectionMatrix();
+		renderer.setSize(canvas.clientWidth, canvas.clientHeight);
     }
   }
 });
