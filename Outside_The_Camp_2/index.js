@@ -292,7 +292,7 @@ let main = async (view) => {
 	}
 	
 	const onWindowResize = () => {
-		camera.aspect = canvas.clientWidth/canvas.clientHeight;
+		camera.aspect = window.innerWidth / window.innerHeight;
 		camera.updateProjectionMatrix();
 		
 		renderer.setSize(canvas.clientWidth, canvas.clientHeight);
@@ -374,7 +374,7 @@ document.getElementById('c_Outside_The_Camp_2').addEventListener('fullscreenchan
 		canvas.style.height = '100vh';**/
 		renderer.setPixelRatio(window.devicePixelRatio);
 		
-		camera.aspect = canvas.clientWidth / canvas.clientHeight;
+		camera.aspect = window.innerWidth / window.innerHeight;
 		camera.updateProjectionMatrix();
 		renderer.setSize(canvas.clientWidth, canvas.clientHeight);
     }

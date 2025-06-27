@@ -17,7 +17,7 @@ let main = async (view) => {
 	
 	//set the camera up
 	const fov = 45;
-	const aspect = canvas.clientWidth/canvas.clientHeight;
+	const aspect = window.innerWidth / window.innerHeight;
 	const near = 0.1;
 	const far = 128;
 	const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
